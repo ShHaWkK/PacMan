@@ -35,10 +35,16 @@ add_executable(PacMan
         src/game.c
         src/pacman.c
         src/map.c
+        src/mouse.c
+
         include/game.h
         include/ghost.h
         include/map.h
         include/pacman.h
+        include/mouse.h
+
+        assets/textures
+        assets/sounds
 
 
         )
