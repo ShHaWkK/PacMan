@@ -9,6 +9,7 @@ void initGame(Game *game) {
     game->isRunning = 1;
 
     // Initialiser Pac-Man, les fantômes, charger les textures, sons, etc.
+
     // Charger la texture de Pac-Man
     SDL_Surface* tempSurface = IMG_Load(PACMAN_TEXTURE_PATH);
     game->pacman.texture = SDL_CreateTextureFromSurface(game->renderer, tempSurface);
@@ -19,6 +20,12 @@ void initGame(Game *game) {
     for (int i = 0; i < MAX_GHOSTS; i++) {
         game->ghosts[i].texture = SDL_CreateTextureFromSurface(game->renderer, tempSurface);
     }
+
+    // Charger la texture du logo
+    tempSurface = IMG_Load(LOGO_TEXTURE_PATH);
+    game->logo.texture = SDL_CreateTextureFromSurface(game->renderer, tempSurface);
+    SDL_FreeSurface(tempSurface);
+
     SDL_FreeSurface(tempSurface);
     game->font = TTF_OpenFont("path/to/font.ttf", 24);
     game->eatSound = Mix_LoadWAV("path/to/eat_sound.wav");
@@ -45,6 +52,11 @@ void drawGame(Game *game) {
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
     SDL_RenderClear(game->renderer);
 
+    // Dessiner le logo
+    SDL_Rect logoRect = {100, 50, 600, 200}; // Position et taille du logo
+    SDL_RenderCopy(game->renderer, game->logo.texture, NULL, &logoRect);
+
+
     // Dessiner Pac-Man
     SDL_Rect pacmanRect = {game->pacman.x, game->pacman.y, 32, 32}; //  32x32 pixels
     SDL_RenderCopy(game->renderer, game->pacman.texture, NULL, &pacmanRect);
@@ -67,7 +79,7 @@ void closeGame(Game *game) {
     for (int i = 0; i < MAX_GHOSTS; i++) {
         SDL_DestroyTexture(game->ghosts[i].texture);
     }
-
+    SDL_DestroyTexture(game->logo.texture);
 
     Mix_FreeChunk(game->eatSound);
     TTF_CloseFont(game->font);
