@@ -4,11 +4,13 @@
 #define MAX_GHOSTS 4
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 600
-
+#define PACMAN_TEXTURE_PATH "assets/texture/pacman.png"
+#define GHOST_TEXTURE_PATH "assets/texture/ghost.png"
 
 #include <SDL.h>
 #include <SDL_mixer.h>
 #include <SDL_ttf.h>
+#include <SDL_image.h>
 typedef struct {
     int x, y;       // Position
     int dx, dy;     // Direction de déplacement
