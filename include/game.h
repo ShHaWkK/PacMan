@@ -30,7 +30,7 @@ typedef struct {
 
 void initGame(Game *game);
 void updateGame(Game *game);
-void drawGame(const Game *game);
+void drawGame(Game *game);
 void closeGame(Game *game);
 void moveEntity(Entity *entity);
 
