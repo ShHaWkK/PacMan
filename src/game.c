@@ -11,7 +11,9 @@ void initGame(Game *game) {
     // Initialiser Pac-Man, les fantômes, charger les textures, sons, etc.
 
     // Charger la texture de Pac-Man
+    
     SDL_Surface* tempSurface = IMG_Load(PACMAN_TEXTURE_PATH);
+    
     game->pacman.texture = SDL_CreateTextureFromSurface(game->renderer, tempSurface);
     SDL_FreeSurface(tempSurface);
 
@@ -31,7 +33,8 @@ void initGame(Game *game) {
     game->eatSound = Mix_LoadWAV("path/to/eat_sound.wav");
 }
 
-void handleEvents(Game *game) {
+void handleEvents(Game *game) 
+{
     while (SDL_PollEvent(&game->event)) {
         if (game->event.type == SDL_QUIT) {
             game->isRunning = 0;
