@@ -7,17 +7,18 @@
 #define GHOST_TEXTURE_PATH "../assets/textures/ghost.png"
 #define LOGO_TEXTURE_PATH "../assets/textures/Pac-Man_Logo.png"
 
+//---------------------------------//
 #include <SDL.h>
 #include <SDL_mixer.h>
 #include <SDL_ttf.h>
 #include <SDL_image.h>
-
+//---------------------------------//
 typedef struct {
     int x, y;       // Position
     int dx, dy;     // Direction de déplacement
     SDL_Texture* texture;
 } Entity;
-
+//---------------------------------//
 // Structure pour l'état du jeu
 typedef struct {
     SDL_Window* window;
