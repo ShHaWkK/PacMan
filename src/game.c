@@ -50,7 +50,8 @@ void updateGame(Game *game) {
     // Déplacer les fantômes, gérer les collisions, etc.
 }
 
-void drawGame(Game *game) {
+void drawGame(Game *game) 
+{
     //  couleur de fond
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
     SDL_RenderClear(game->renderer);
